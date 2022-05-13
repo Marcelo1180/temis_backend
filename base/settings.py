@@ -18,6 +18,7 @@ from .core.applist import *
 from .core.database import *
 from .core.internationalization import *
 from .core.mailserver import *
+
 # from distutils.util import strtobool
 
 
@@ -104,6 +105,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # DRF authentication permissions
 # https://idiomaticprogrammers.com/post/how-to-implement-auto-expiring-token-in-django-rest-framework
 REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "base.apps.account.authentication.ExpiringTokenAuthentication",
     ),

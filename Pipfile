@@ -11,6 +11,7 @@ django-request-logging = "*"
 drf-yasg = "*"
 waitress = "*"
 django-cors-headers = "*"
+django-filter = "*"
 
 [dev-packages]
 pre-commit = "*"

@@ -11,6 +11,7 @@ from base.apps.account.views import view_status
 urlpatterns = [
     path("", view_status),
     path("account/v1/", include("base.apps.account.urls")),
+    path("pos/v1/", include("base.apps.pos.urls")),
 ]
 # ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

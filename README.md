@@ -1,4 +1,4 @@
-# Project django base for examples
+# Project Temis backend
 
 This project was tested in:
 - Debian 10

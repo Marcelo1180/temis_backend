@@ -9,13 +9,17 @@ DJANGO_APPS = (
     "django.contrib.staticfiles",
 )
 
-LOCAL_APPS = ("base.apps.account",)
+LOCAL_APPS = (
+    "base.apps.account",
+    "base.apps.pos",
+)
 
 THIRD_PARTY_APPS = (
     "rest_framework",
     "rest_framework.authtoken",
     "dj_rest_auth",
     "drf_yasg",
+    "django_filters",
 )
 
 

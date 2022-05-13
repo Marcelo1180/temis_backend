@@ -1,4 +1,4 @@
-# INSTALL django base project
+# INSTALL Temis backend
 
 Setup config settings
 ```sh
