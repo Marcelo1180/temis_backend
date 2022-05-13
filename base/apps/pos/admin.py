@@ -3,6 +3,7 @@ from .models import Category
 from .models import Order
 from .models import ProductOrder
 from .models import Product
+from .models import PaymentMethod
 
 """
 Category
@@ -23,3 +24,8 @@ admin.site.register(ProductOrder)
 Product
 """
 admin.site.register(Product)
+
+"""
+PaymentMethod
+"""
+admin.site.register(PaymentMethod)

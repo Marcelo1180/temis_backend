@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 
 class Category(models.Model):
-    name = models.CharField(max_length=500)
+    name = models.CharField(max_length=100, unique=True)
     sort_by = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -49,7 +49,7 @@ class Product(models.Model):
 
 
 class PaymentMethod(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     sort_by = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

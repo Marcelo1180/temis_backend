@@ -3,9 +3,11 @@ from rest_framework import generics
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
 from .models import Category
+from .models import PaymentMethod
 from .models import Product
 from .serializers import CategorySerializer
 from .serializers import ProductSerializer
+from .serializers import PaymentMethodSerializer
 
 
 @permission_classes([AllowAny])
@@ -18,4 +20,10 @@ class CategoryListView(generics.ListAPIView):
 class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    filterset_fields = ['category', 'available']
+    filterset_fields = ["category", "available"]
+
+
+@permission_classes([AllowAny])
+class PaymentMethodListView(generics.ListAPIView):
+    queryset = PaymentMethod.objects.all()
+    serializer_class = PaymentMethodSerializer
