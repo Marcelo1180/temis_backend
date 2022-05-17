@@ -12,6 +12,7 @@ drf-yasg = "*"
 waitress = "*"
 django-cors-headers = "*"
 django-filter = "*"
+pydantic = "*"
 
 [dev-packages]
 pre-commit = "*"

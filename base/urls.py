@@ -12,6 +12,7 @@ urlpatterns = [
     path("", view_status),
     path("account/v1/", include("base.apps.account.urls")),
     path("pos/v1/", include("base.apps.pos.urls")),
+    path("scale/v1/", include("base.apps.scale.urls")),
 ]
 # ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

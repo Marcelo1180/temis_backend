@@ -1,5 +1,12 @@
-from django.db import models
+import logging
 from django.conf import settings
+from django.db import models
+from django.db import IntegrityError, transaction
+from django.contrib.auth.models import User
+
+
+logger = logging.getLogger(__name__)
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -21,6 +28,7 @@ class Category(models.Model):
 class ProductUnits(models.TextChoices):
     UNITS = "u", "Units"
     KG = "kg", "Kg"
+
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -64,12 +72,19 @@ class PaymentMethod(models.Model):
     def __unicode__(self):
         return self.name
 
+class OrderManager(models.Manager):
+    def create_from_json(self, order):
+        payment_method = PaymentMethod.objects.get(id=order.pop("payment_method"))
+        author = User.objects.get(id=order.pop("author"))
+        return Order.objects.create(**order, payment_method=payment_method, author=author)
+
 class Order(models.Model):
-    total = models.DecimalField(decimal_places=2, max_digits=10, default=0)
+    total = models.DecimalField(decimal_places=2, max_digits=10)
     payment_method = models.ForeignKey(PaymentMethod, on_delete=models.CASCADE)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    objects = OrderManager()
 
     class Meta:
         verbose_name = "Order"
@@ -81,17 +96,35 @@ class Order(models.Model):
     def __unicode__(self):
         return f"Order #{self.id}"
 
+
+class ProductOrderManager(models.Manager):
+    def bulk_insert_by_order_from_json(self, product_orders, order):
+        try:
+            with transaction.atomic():
+                for product_order in product_orders:
+                    product = Product.objects.get(id=product_order.pop("product"))
+                    ProductOrder.objects.create(
+                        **product_order, product=product, order=order
+                    )
+        except IntegrityError as err:
+            logger.error(f"Bulk upsert failed: {err}")
+
+
 class ProductOrder(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    quantity = models.DecimalField(decimal_places=2, max_digits=10)
+    price = models.DecimalField(decimal_places=2, max_digits=10)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    objects = ProductOrderManager()
+
     class Meta:
         verbose_name = "Product order"
         verbose_name_plural = "Product orders"
 
     def __str__(self):
-        return self.order
+        return f"Order product: #{self.id}"
 
     def __unicode__(self):
-        return self.order
+        return f"Order product: #{self.id}"
