@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from driver import 
 
 
 class ScaleConfig(AppConfig):
