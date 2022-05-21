@@ -3,5 +3,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', views.index, name='index_scale'),
+    path('weight/', views.scale_weight),
 ]

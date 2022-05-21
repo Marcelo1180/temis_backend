@@ -13,6 +13,7 @@ waitress = "*"
 django-cors-headers = "*"
 django-filter = "*"
 pydantic = "*"
+pyserial = "*"
 
 [dev-packages]
 pre-commit = "*"
