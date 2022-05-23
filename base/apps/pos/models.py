@@ -73,11 +73,14 @@ class PaymentMethod(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class OrderManager(models.Manager):
-    def create_from_json(self, order):
+    def create_from_json(self, order, author):
         payment_method = PaymentMethod.objects.get(id=order.pop("payment_method"))
-        author = User.objects.get(id=order.pop("author"))
-        return Order.objects.create(**order, payment_method=payment_method, author=author)
+        return Order.objects.create(
+            **order, payment_method=payment_method, author=author
+        )
+
 
 class Order(models.Model):
     total = models.DecimalField(decimal_places=2, max_digits=10)
@@ -129,6 +132,7 @@ class ProductOrder(models.Model):
 
     def __unicode__(self):
         return f"Order product: #{self.id}"
+
 
 class CashControl(models.Model):
     total = models.DecimalField(decimal_places=2, max_digits=10)

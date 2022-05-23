@@ -55,11 +55,11 @@ def sell_create(request):
     """
 
     try:
-        sell = SellStructure(**request.data)
-        order = request.data.get("order", "")
-        product_orders = request.data.get("product_orders", "")
+        sell = SellStructure(**request.data).dict()
+        order = sell["order"]
+        product_orders = sell["product_orders"]
         with transaction.atomic():
-            order = Order.objects.create_from_json(order)
+            order = Order.objects.create_from_json(order, request.user)
             ProductOrder.objects.bulk_insert_by_order_from_json(product_orders, order)
         return JsonResponse(request.data, safe=False, status=200)
     except Exception as e:
