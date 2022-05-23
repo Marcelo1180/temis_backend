@@ -5,6 +5,7 @@ from base.apps.account import views
 
 urlpatterns = [
     path("status", views.view_status),
+    path("status_authorized", views.view_status_authorized),
     path("", include("dj_rest_auth.urls")),
     # Path used to redirect or complete the form
     path(

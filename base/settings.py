@@ -115,6 +115,7 @@ REST_FRAMEWORK = {
 REST_AUTH_TOKEN_CREATOR = "base.apps.account.utils.custom_create_token"
 # Time of expiration token in hours
 TOKEN_TTL = datetime.timedelta(hours=4)
+# TOKEN_TTL = datetime.timedelta(seconds=4)
 # TOKEN_TTL = datetime.timedelta(milliseconds=1)
 # Enable old password in method change password
 OLD_PASSWORD_FIELD_ENABLED = True
@@ -167,5 +168,5 @@ USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Upload files
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'

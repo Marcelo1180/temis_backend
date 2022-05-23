@@ -5,7 +5,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from base.apps.account.views import view_status
-# from django.conf.urls.static import static
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -13,8 +13,8 @@ urlpatterns = [
     path("account/v1/", include("base.apps.account.urls")),
     path("pos/v1/", include("base.apps.pos.urls")),
     path("scale/v1/", include("base.apps.scale.urls")),
-]
-# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# ]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Show apidoc if DEBUG is activated

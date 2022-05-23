@@ -42,6 +42,7 @@ class Product(models.Model):
         default=ProductUnits.UNITS,
     )
     available = models.BooleanField(blank=True, default=True)
+    image = models.ImageField(upload_to="uploads/", blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -128,3 +129,23 @@ class ProductOrder(models.Model):
 
     def __unicode__(self):
         return f"Order product: #{self.id}"
+
+class CashControl(models.Model):
+    total = models.DecimalField(decimal_places=2, max_digits=10)
+    date = models.DateField()
+    sales = models.IntegerField(default=0)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    detail = models.TextField()
+    observation = models.TextField(default="")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Cash control"
+        verbose_name_plural = "Cash controls"
+
+    def __str__(self):
+        return f"Cash control #{self.id}"
+
+    def __unicode__(self):
+        return f"Cash control #{self.id}"
