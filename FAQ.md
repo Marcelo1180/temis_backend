@@ -13,10 +13,10 @@ Second versioning with classic commands of git, in this case will call to pre-co
 (env)$ git commit -m "example commit"
 ```
 
-Create a new app
+## Create a new app
 
 ```
-mkdir ./base/apps/appname
+mkdir -p ./base/apps/appname
 django-admin startapp appname ./base/apps/appname
 ```
 

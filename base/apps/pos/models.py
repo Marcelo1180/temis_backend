@@ -32,6 +32,7 @@ class ProductUnits(models.TextChoices):
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
+    code = models.CharField(max_length=100)
     description = models.CharField(max_length=500, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -42,6 +43,7 @@ class Product(models.Model):
         default=ProductUnits.UNITS,
     )
     available = models.BooleanField(blank=True, default=True)
+    vacuum_packed = models.BooleanField(blank=True, default=False)
     image = models.ImageField(upload_to="uploads/", blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

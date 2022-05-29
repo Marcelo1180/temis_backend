@@ -5,7 +5,6 @@ from django.http import JsonResponse
 from django.db import transaction
 from rest_framework import generics
 from rest_framework.decorators import permission_classes
-from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from .models import CashControl, Category
@@ -20,26 +19,26 @@ from .serializers import OrderSerializer
 from .structures import SellStructure, cashControlStructure
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 class CategoryListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filterset_fields = ["category", "available"]
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 class PaymentMethodListView(generics.ListAPIView):
     queryset = PaymentMethod.objects.all()
     serializer_class = PaymentMethodSerializer
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 class OrderCreateView(generics.CreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
@@ -95,7 +94,7 @@ def summary_sales_calculate(date, user):
 
 
 @api_view(["GET"])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def summary_sales_by_date(request, date):
     from django.utils import dateparse
 
@@ -117,7 +116,7 @@ def summary_sales_by_date(request, date):
 
 
 @api_view(["GET"])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def summary_sales(request):
     from django.utils import dateparse
 

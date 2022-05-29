@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .driver import ScaleFinder
 from rest_framework.decorators import api_view
 from rest_framework.decorators import permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from .driver import ScaleConfig
 from .driver import Scale
 from django.http import JsonResponse
@@ -24,7 +24,7 @@ scale_daemon_value.start()
 
 
 @api_view(["GET"])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def scale_weight(request):
     config = ScaleConfig()
     systel = Scale(config)
