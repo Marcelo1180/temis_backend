@@ -13,6 +13,7 @@ LOCAL_APPS = (
     "base.apps.account",
     "base.apps.pos",
     "base.apps.scale",
+    "base.apps.inventory",
 )
 
 THIRD_PARTY_APPS = (

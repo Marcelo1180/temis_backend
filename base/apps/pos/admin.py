@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import CashControl
 from .models import Category
 from .models import Order
 from .models import ProductOrder
@@ -23,9 +24,17 @@ admin.site.register(ProductOrder)
 """
 Product
 """
-admin.site.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'image', 'barcode', 'available', 'vacuum_packed')
+
+admin.site.register(Product, ProductAdmin)
 
 """
 PaymentMethod
 """
 admin.site.register(PaymentMethod)
+
+"""
+CashControl
+"""
+admin.site.register(CashControl)

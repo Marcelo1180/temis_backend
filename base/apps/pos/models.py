@@ -32,6 +32,7 @@ class ProductUnits(models.TextChoices):
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
+    code = models.CharField(max_length=100)
     description = models.CharField(max_length=500, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -42,6 +43,8 @@ class Product(models.Model):
         default=ProductUnits.UNITS,
     )
     available = models.BooleanField(blank=True, default=True)
+    vacuum_packed = models.BooleanField(blank=True, default=False)
+    image = models.ImageField(upload_to="uploads/", blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -72,11 +75,14 @@ class PaymentMethod(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class OrderManager(models.Manager):
-    def create_from_json(self, order):
+    def create_from_json(self, order, author):
         payment_method = PaymentMethod.objects.get(id=order.pop("payment_method"))
-        author = User.objects.get(id=order.pop("author"))
-        return Order.objects.create(**order, payment_method=payment_method, author=author)
+        return Order.objects.create(
+            **order, payment_method=payment_method, author=author
+        )
+
 
 class Order(models.Model):
     total = models.DecimalField(decimal_places=2, max_digits=10)
@@ -128,3 +134,24 @@ class ProductOrder(models.Model):
 
     def __unicode__(self):
         return f"Order product: #{self.id}"
+
+
+class CashControl(models.Model):
+    total = models.DecimalField(decimal_places=2, max_digits=10)
+    date = models.DateField()
+    sales = models.IntegerField(default=0)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    detail = models.TextField()
+    observation = models.TextField(default="")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Cash control"
+        verbose_name_plural = "Cash controls"
+
+    def __str__(self):
+        return f"Cash control #{self.id}"
+
+    def __unicode__(self):
+        return f"Cash control #{self.id}"
