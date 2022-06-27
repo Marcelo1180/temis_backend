@@ -1,41 +1,17 @@
 import datetime
 import json
-from django.shortcuts import render
 from django.http import JsonResponse
 from django.db import transaction
 from rest_framework import generics
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
-from .models import CashControl, Category
-from .models import PaymentMethod
-from .models import Product
+from .models import CashControl
 from .models import Order
 from .models import ProductOrder
-from .serializers import CashControlSerializer, CategorySerializer
-from .serializers import ProductSerializer
-from .serializers import PaymentMethodSerializer
+from .serializers import CashControlSerializer
 from .serializers import OrderSerializer
 from .structures import SellStructure, cashControlStructure
-
-
-@permission_classes([IsAuthenticated])
-class CategoryListView(generics.ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
-@permission_classes([IsAuthenticated])
-class ProductListView(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    filterset_fields = ["category", "available"]
-
-
-@permission_classes([IsAuthenticated])
-class PaymentMethodListView(generics.ListAPIView):
-    queryset = PaymentMethod.objects.all()
-    serializer_class = PaymentMethodSerializer
 
 
 @permission_classes([IsAuthenticated])

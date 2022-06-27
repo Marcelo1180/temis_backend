@@ -11,6 +11,7 @@ from django.conf.urls.static import serve
 urlpatterns = [
     path("", view_status),
     path("account/v1/", include("base.apps.account.urls")),
+    path("common/v1/", include("base.apps.common.urls")),
     path("pos/v1/", include("base.apps.pos.urls")),
     path("scale/v1/", include("base.apps.scale.urls")),
     path("admin/", admin.site.urls),

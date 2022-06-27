@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from base.apps.pos.models import Product
+from base.apps.common.models import Product
 
 
 class Store(models.Model):
@@ -8,6 +8,15 @@ class Store(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = "Store"
+        verbose_name_plural = "Stores"
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name
 
 class Order(models.Model):
     total = models.DecimalField(decimal_places=2, max_digits=10)

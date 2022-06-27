@@ -1,0 +1,21 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$xAN28AvMRztVCAJQ2m2ldu$CF6Q0/HqVmXLEhhc+OYU04+q52zXGgwvPSpnP7x7XEA=",
+      "last_login": "2022-05-30T01:39:00.944Z",
+      "is_superuser": true,
+      "username": "marcelo",
+      "first_name": "Marcelo",
+      "last_name": "Arteaga",
+      "email": "marcelo.arteaga@ultrakarne.com.bo",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-05-29T23:21:34Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
+
