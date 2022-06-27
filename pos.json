@@ -1,0 +1,146 @@
+[
+  {
+    "model": "pos.category",
+    "pk": 1,
+    "fields": {
+      "name": "Carne de Res",
+      "sort_by": 0,
+      "created": "2022-05-13T14:55:15.583Z",
+      "updated": "2022-05-13T14:55:15.583Z"
+    }
+  },
+  {
+    "model": "pos.category",
+    "pk": 2,
+    "fields": {
+      "name": "Salsas",
+      "sort_by": 0,
+      "created": "2022-05-13T14:55:25.557Z",
+      "updated": "2022-05-13T14:55:25.557Z"
+    }
+  },
+  {
+    "model": "pos.category",
+    "pk": 3,
+    "fields": {
+      "name": "Bebidas",
+      "sort_by": 0,
+      "created": "2022-05-13T14:55:33.670Z",
+      "updated": "2022-05-13T14:55:33.670Z"
+    }
+  },
+  {
+    "model": "pos.product",
+    "pk": 1,
+    "fields": {
+      "name": "Molida especial",
+      "code": "1",
+      "description": null,
+      "category": 1,
+      "price": "38.50",
+      "barcode": "067990600139",
+      "units": "kg",
+      "available": true,
+      "image": "uploads/molida.jpeg",
+      "created": "2022-05-13T14:56:13.956Z",
+      "updated": "2022-05-21T00:12:41.065Z"
+    }
+  },
+  {
+    "model": "pos.product",
+    "pk": 2,
+    "fields": {
+      "name": "Mayonesa",
+      "code": "1",
+      "description": null,
+      "category": 2,
+      "price": "10.00",
+      "barcode": "7791293023175",
+      "units": "u",
+      "available": true,
+      "image": "uploads/mayonesa.jpeg",
+      "created": "2022-05-13T14:56:35.031Z",
+      "updated": "2022-05-21T00:12:20.174Z"
+    }
+  },
+  {
+    "model": "pos.product",
+    "pk": 3,
+    "fields": {
+      "name": "Chuleta (Al Vacio)",
+      "code": "1",
+      "description": null,
+      "category": 1,
+      "price": "0.01",
+      "barcode": "P001",
+      "units": "kg",
+      "available": false,
+      "image": "uploads/chuleta.jpeg",
+      "created": "2022-05-13T14:57:34.995Z",
+      "updated": "2022-05-21T00:12:50.962Z"
+    }
+  },
+  {
+    "model": "pos.product",
+    "pk": 4,
+    "fields": {
+      "name": "Caja de cervezas Cordillera",
+      "code": "1",
+      "description": null,
+      "category": 3,
+      "price": "200.00",
+      "barcode": "P002",
+      "units": "u",
+      "available": false,
+      "image": "",
+      "created": "2022-05-17T12:11:25.507Z",
+      "updated": "2022-05-17T12:11:25.507Z"
+    }
+  },
+  {
+    "model": "pos.paymentmethod",
+    "pk": 1,
+    "fields": {
+      "name": "Efectivo",
+      "sort_by": 100,
+      "created": "2022-05-14T13:17:14.917Z",
+      "updated": "2022-05-14T13:17:14.917Z"
+    }
+  },
+  {
+    "model": "pos.paymentmethod",
+    "pk": 2,
+    "fields": {
+      "name": "Tarjeta",
+      "sort_by": 10,
+      "created": "2022-05-14T13:17:34.424Z",
+      "updated": "2022-05-14T13:18:24.834Z"
+    }
+  },
+  {
+    "model": "pos.order",
+    "pk": 47,
+    "fields": {
+      "total": "50.00",
+      "payment_method": 1,
+      "author": 2,
+      "created": "2022-05-23T21:57:03.850Z",
+      "updated": "2022-05-23T21:57:03.850Z"
+    }
+  },
+  {
+    "model": "pos.cashcontrol",
+    "pk": 17,
+    "fields": {
+      "total": "180.00",
+      "date": "2022-05-23",
+      "sales": 3,
+      "author": 1,
+      "detail": "[{\"key\": 1, \"payment_method\": \"Efectivo\", \"sales\": 2, \"total\": 180.0}, {\"key\": 2, \"payment_method\": \"Tarjeta\", \"sales\": 1, \"total\": 180.0}]",
+      "observation": "Sin novedad Todo Ok",
+      "created": "2022-05-23T21:42:51.934Z",
+      "updated": "2022-05-23T21:42:51.934Z"
+    }
+  }
+]
+

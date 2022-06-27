@@ -1,0 +1,259 @@
+[
+  {
+    "model": "common.category",
+    "pk": 1,
+    "fields": {
+      "name": "Carne de Res",
+      "sort_by": 100,
+      "created": "2022-05-29T23:36:08.117Z",
+      "updated": "2022-05-29T23:36:08.117Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 1,
+    "fields": {
+      "name": "Molida especial (Al Vacio)",
+      "code": "P001",
+      "description": null,
+      "category": 1,
+      "price": "33.00",
+      "barcode": "P001",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-molida-especial_XMEQkNg.jpeg",
+      "created": "2022-05-29T23:38:08.099Z",
+      "updated": "2022-05-30T00:39:19.234Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 2,
+    "fields": {
+      "name": "Molida normal",
+      "code": "P002",
+      "description": null,
+      "category": 1,
+      "price": "25.00",
+      "barcode": "P002",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": false,
+      "image": "uploads/res-molida-corriente_S3aFxul.jpeg",
+      "created": "2022-05-29T23:39:21.490Z",
+      "updated": "2022-05-30T00:39:28.704Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 3,
+    "fields": {
+      "name": "Hueso rojo (Al Vacio)",
+      "code": "P003",
+      "description": null,
+      "category": 1,
+      "price": "10.00",
+      "barcode": "P003",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-hueso-rojo_yUUpbJp.jpeg",
+      "created": "2022-05-30T00:40:20.101Z",
+      "updated": "2022-05-30T00:40:20.101Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 4,
+    "fields": {
+      "name": "Hueso blanco",
+      "code": "P004",
+      "description": null,
+      "category": 1,
+      "price": "3.00",
+      "barcode": "P004",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": false,
+      "image": "uploads/res-hueso-blanco_1cvSS6u.jpeg",
+      "created": "2022-05-30T00:41:06.723Z",
+      "updated": "2022-05-30T00:41:06.723Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 5,
+    "fields": {
+      "name": "Chuleta (Al Vacio)",
+      "code": "P005",
+      "description": null,
+      "category": 1,
+      "price": "29.00",
+      "barcode": "P005",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-chuleta_dcX0QUo.jpeg",
+      "created": "2022-05-30T00:42:14.944Z",
+      "updated": "2022-05-30T00:42:14.944Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 6,
+    "fields": {
+      "name": "Pulpa especial",
+      "code": "P007",
+      "description": null,
+      "category": 1,
+      "price": "40.00",
+      "barcode": "P007",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": false,
+      "image": "uploads/res-pulpa-especial_qxRMSCB.jpeg",
+      "created": "2022-05-30T00:43:28.801Z",
+      "updated": "2022-05-30T00:43:28.801Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 7,
+    "fields": {
+      "name": "Bife chorizo o churrasco",
+      "code": "P008",
+      "description": null,
+      "category": 1,
+      "price": "45.00",
+      "barcode": "P008",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": false,
+      "image": "uploads/res-bife-chorizo_a6i5vfK.jpeg",
+      "created": "2022-05-30T00:44:38.016Z",
+      "updated": "2022-05-30T00:49:22.158Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 8,
+    "fields": {
+      "name": "Costilla (Al Vacio)",
+      "code": "P009",
+      "description": null,
+      "category": 1,
+      "price": "22.00",
+      "barcode": "P009",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-costilla_VemjrWF.jpeg",
+      "created": "2022-05-30T00:45:30.718Z",
+      "updated": "2022-05-30T00:45:30.718Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 9,
+    "fields": {
+      "name": "Sobre costilla (Al Vacio)",
+      "code": "P010",
+      "description": null,
+      "category": 1,
+      "price": "26.00",
+      "barcode": "P010",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-sobre-costilla_EBwtZMy.jpeg",
+      "created": "2022-05-30T00:46:27.382Z",
+      "updated": "2022-05-30T00:49:10.968Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 10,
+    "fields": {
+      "name": "Pecho (Al Vacio)",
+      "code": "P011",
+      "description": null,
+      "category": 1,
+      "price": "22.00",
+      "barcode": "P011",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-pecho_lnjBxcO.jpeg",
+      "created": "2022-05-30T00:47:13.537Z",
+      "updated": "2022-05-30T00:47:13.537Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 11,
+    "fields": {
+      "name": "Pulpa normal",
+      "code": "P012",
+      "description": null,
+      "category": 1,
+      "price": "32.00",
+      "barcode": "P012",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": false,
+      "image": "uploads/res-pulpa-corriente_UtHDxHx.jpeg",
+      "created": "2022-05-30T00:47:43.166Z",
+      "updated": "2022-05-30T00:47:56.768Z"
+    }
+  },
+  {
+    "model": "common.product",
+    "pk": 12,
+    "fields": {
+      "name": "Chorizo (Al Vacio)",
+      "code": "P013",
+      "description": null,
+      "category": 1,
+      "price": "26.00",
+      "barcode": "P013",
+      "units": "kg",
+      "available": true,
+      "vacuum_packed": true,
+      "image": "uploads/res-chorizo_C2YrvpD.jpeg",
+      "created": "2022-05-30T00:48:51.546Z",
+      "updated": "2022-05-30T00:48:51.546Z"
+    }
+  },
+  {
+    "model": "common.paymentmethod",
+    "pk": 1,
+    "fields": {
+      "name": "Efectivo",
+      "sort_by": 100,
+      "created": "2022-05-29T23:36:16.914Z",
+      "updated": "2022-05-29T23:36:16.914Z"
+    }
+  },
+  {
+    "model": "common.paymentmethod",
+    "pk": 2,
+    "fields": {
+      "name": "Tarjeta",
+      "sort_by": 10,
+      "created": "2022-05-29T23:36:25.735Z",
+      "updated": "2022-05-29T23:36:25.735Z"
+    }
+  },
+  {
+    "model": "common.paymentmethod",
+    "pk": 3,
+    "fields": {
+      "name": "Pagos QR",
+      "sort_by": 0,
+      "created": "2022-05-29T23:36:42.371Z",
+      "updated": "2022-05-29T23:36:42.371Z"
+    }
+  }
+]
+

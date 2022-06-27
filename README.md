@@ -6,6 +6,7 @@ This project was tested in:
 
 ## Requirements
   - pipenv
+  - python 3 or superior
 
 ## Installation guide
 * [Installing the project](INSTALL.md)
@@ -13,7 +14,7 @@ This project was tested in:
 
 Setup config settings
 ```sh
-cp settings.example.json settings.json 
+cp .env.example .env
 ```
 __DEBUG=true__ is used for debugging mode, in this mode you can use:
 - admin/ (Classic admin of django)

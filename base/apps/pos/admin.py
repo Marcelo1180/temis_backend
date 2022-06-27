@@ -1,14 +1,8 @@
 from django.contrib import admin
-from .models import Category
+from .models import CashControl
 from .models import Order
 from .models import ProductOrder
-from .models import Product
-from .models import PaymentMethod
 
-"""
-Category
-"""
-admin.site.register(Category)
 
 """
 Order
@@ -21,11 +15,6 @@ ProductOrder
 admin.site.register(ProductOrder)
 
 """
-Product
+CashControl
 """
-admin.site.register(Product)
-
-"""
-PaymentMethod
-"""
-admin.site.register(PaymentMethod)
+admin.site.register(CashControl)
