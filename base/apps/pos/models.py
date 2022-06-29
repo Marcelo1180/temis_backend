@@ -47,6 +47,7 @@ class ProductOrderManager(models.Manager):
                     )
         except IntegrityError as err:
             logger.error(f"Bulk upsert failed: {err}")
+            raise
 
 
 class ProductOrder(models.Model):
