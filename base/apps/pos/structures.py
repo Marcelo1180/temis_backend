@@ -10,7 +10,7 @@ class OrderStructure(BaseModel):
 class ProductOrderStructure(BaseModel):
     product: int
     quantity: float
-    # price: float
+    price: float
 
 
 class SellStructure(BaseModel):
