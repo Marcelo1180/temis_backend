@@ -73,7 +73,7 @@ db.sqlite3-journal
 settings.json
 
 # Only for base project
-migrations/
+# migrations/
 
 # Flask stuff:
 instance/
