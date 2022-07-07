@@ -14,6 +14,7 @@ urlpatterns = [
     path("common/v1/", include("base.apps.common.urls")),
     path("pos/v1/", include("base.apps.pos.urls")),
     path("scale/v1/", include("base.apps.scale.urls")),
+    path("inventory/v1/", include("base.apps.inventory.urls")),
     path("admin/", admin.site.urls),
     # Serving media on production mode
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),

@@ -37,7 +37,9 @@ class Product(models.Model):
     )
     available = models.BooleanField(blank=True, default=True)
     vacuum_packed = models.BooleanField(blank=True, default=False)
-    image = models.ImageField(upload_to="uploads/", blank=True, null=True)
+    image = models.ImageField(
+        upload_to="uploads/", blank=True, default="uploads/default.jpeg"
+    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
