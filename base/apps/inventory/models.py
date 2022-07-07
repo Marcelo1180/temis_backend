@@ -18,11 +18,31 @@ class Store(models.Model):
     def __unicode__(self):
         return self.name
 
+
+class StatusOrder(models.TextChoices):
+    UNPAID = "unpaid", "Unpaid"
+    PAID = "paid", "Paid"
+
+
 class Order(models.Model):
     total = models.DecimalField(decimal_places=2, max_digits=10)
-    from_store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name="invetory_from_store")
-    to_store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name="inventory_to_store")
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="inventory_order_author")
+    from_store = models.ForeignKey(
+        Store, on_delete=models.CASCADE, related_name="invetory_from_store"
+    )
+    to_store = models.ForeignKey(
+        Store, on_delete=models.CASCADE, related_name="inventory_to_store"
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="inventory_order_author",
+    )
+    date = models.DateField()
+    status = models.CharField(
+        max_length=10,
+        choices=StatusOrder.choices,
+        default=StatusOrder.UNPAID,
+    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -38,7 +58,9 @@ class Order(models.Model):
 
 
 class ProductOrder(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="inventory_product_order")
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name="inventory_product_order"
+    )
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     quantity = models.DecimalField(decimal_places=2, max_digits=10)
     price = models.DecimalField(decimal_places=2, max_digits=10)

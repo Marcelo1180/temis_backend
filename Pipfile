@@ -15,6 +15,7 @@ django-filter = "*"
 pydantic = "*"
 pyserial = "*"
 pillow = "*"
+pandas = "*"
 
 [dev-packages]
 pre-commit = "*"
